@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deema project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header class="header container ">
+      <h1>Web Topics</h1>
+      <nav>
+        <ul class="theme">
+          <li>
+            <button name="dark-mode" >
+              <ion-icon name="moon-outline"></ion-icon><span>Dark Mode</span>
+            </button>
+          </li>
+          <li>
+            <button name="favourites" >
+              <ion-icon name="heart-outline"></ion-icon><span>Favourites</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="our-website">
+      <div >
+        <div class="triangle triangle1"></div>
+        <div class="triangle triangle2"></div>
+        <h2>Welcome to our website!</h2>
+        <p>We have a new design that's fresh, modern, and easy to use</p>
+      </div>
+    </section>
+    <article class="website-content container">
+      <section class="search" >
+        <div class="input">
+          <ion-icon name="search-outline"></ion-icon>
+          <input  type="text" oninput="handleSearch()" placeholder="Search the website..."  class="search-input" />
+        </div>
+        <button  class="search-dropdown sort-by" id="sort-by">
+          <label for="dropdown-sort">Sort by:</label>
+          <select name="" id="dropdown-sort">
+            <option value="Default">Default</option>
+          </select>
+        </button>
+        <button class="search-dropdown filter-by">
+          <label for="dropdown-filter">Filter by:</label>
+          <select name="" id="dropdown-filter">
+            <option  value="Default">Default</option>
+          </select>
+        </button>
+      </section>
+      <h2 class="web-topics">"<span class="resultsNumber" >0</span>" Web Topics Found</h2>
+      <div class="cards" id="cards"></div>
+     
+    </article>
+
+    <section class="my-favourites container">
+      <h3>My Favourite Topics</h3>
+      <div class="favourite-topics">
+        <div class="favourite-topic">
+          <img src="imgs/react.webp" alt="react" />
+          <h4 class="trim-one">React</h4>
+          <div class="stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="favourite-topic">
+          <img id="cloud" src="imgs/cloud.jpeg" alt="cloud" />
+          <h4 class="trim-one">Cloud Computing</h4>
+          <div class="stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <script src="Js/main.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
