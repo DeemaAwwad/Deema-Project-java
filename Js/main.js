@@ -137,7 +137,7 @@ if (mode === "enabled") {
       
        
 
-  const topicId = urlParams.get('id');
+/*  const topicId = urlParams.get('id');
 
  async function fetchTopicDetails(topicId) {
   const response = await fetch(`https://tap-web-1.herokuapp.com/topics/details/${topicId}`);
@@ -153,7 +153,7 @@ if (mode === "enabled") {
          fetchTopicDetails(topicId);
        
       
-        }); 
+        }); */
 
         counter++;
         const countResult = document.querySelector('.resultsNumber');

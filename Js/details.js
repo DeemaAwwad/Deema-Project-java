@@ -30,7 +30,7 @@ if (mode === "enabled") {
 
 
 
-  const urlParams = new URLSearchParams(window.location.search);
+ /* const urlParams = new URLSearchParams(window.location.search);
   const topicId = urlParams.get('id');
   
  async function fetchTopicDetails(topicId) {
@@ -80,7 +80,7 @@ if (mode === "enabled") {
               typeLanguage.appendChild(description);
         languagePage.appendChild(typeLanguage);
       }
-    }
+    } */
     
 
 
