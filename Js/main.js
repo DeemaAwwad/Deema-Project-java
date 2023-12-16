@@ -1,14 +1,9 @@
 let mode = window.localStorage.getItem("darkMode");
 let darkBtn = document.querySelector("[name=dark-mode]");
 
-
-
-
 if (mode === "enabled") {
     document.body.setAttribute("class", "darkmode");
     darkBtn.style.cssText = "background-color: var(--brand-secondary)";
-   
-
   
   }
 
@@ -73,6 +68,8 @@ if (mode === "enabled") {
               const response = await fetch("https://tap-web-1.herokuapp.com/topics/list");
                data = await response.json();
               renderData(data);
+              handleFilter(data);
+
             }
         
            
@@ -137,6 +134,27 @@ if (mode === "enabled") {
         card.appendChild(cardContent); 
         cardsSection.appendChild(card);
 
+      
+       
+
+  const topicId = urlParams.get('id');
+
+ async function fetchTopicDetails(topicId) {
+  const response = await fetch(`https://tap-web-1.herokuapp.com/topics/details/${topicId}`);
+  const data = await response.json();
+    return data;
+} 
+
+      card.addEventListener('click', () => {
+      
+       
+         window.location.href = `details.html?id=${topicId}`;
+         
+         fetchTopicDetails(topicId);
+       
+      
+        }); 
+
         counter++;
         const countResult = document.querySelector('.resultsNumber');
         countResult.innerHTML = counter;
@@ -158,5 +176,63 @@ if (mode === "enabled") {
     }, 300);
 
 
+
+const selectElement = document.getElementById("dropdown-sort");
+
+selectElement.addEventListener("change", function() {
+  handleSorting(this.value);
+});
+
+function handleSorting(selectedValue) {
+  if (selectedValue === "TopicTitle") {
+    if (Array.isArray(data) && data.length > 0) {
+      const sortedData = [...data];
+      sortedData.sort((a, b) => a.topic.localeCompare(b.topic));
+      renderData(sortedData);
+    }
+  } else if (selectedValue === "AuthorName") {
+    if (Array.isArray(data) && data.length > 0) {
+      const sortedData = [...data];
+      sortedData.sort((a, b) => a.name.localeCompare(b.name));
+      renderData(sortedData);
+    }
+  } else {
+    renderData(data);
+  }
+}
+
+
+
+const dropdown = document.getElementById('dropdown-filter');
+
+dropdown.addEventListener("change", function() {
+  let items = [];
+
+  data.forEach(topic=>{
+  if(topic.category === this.value ){
+  items.push(topic); }
+
+ })
+ renderData(items)
+
+
+});
+
+  function handleFilter(){
+   
+    const categories = [...new Set(data.map(topic => topic.category))];
+    categories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category;
+      dropdown.appendChild(option);
+    });
+   
+    
+
+
+  }
+  
+  
 
 
